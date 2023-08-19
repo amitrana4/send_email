@@ -1,0 +1,54 @@
+scalar JSON
+scalar Date
+
+
+enum smtp_type {
+  SSL
+  TSL
+  NONE
+}
+
+input email_system_values {
+  name: String!
+  username: String!
+  email: String!
+  password: String!
+  smtp_host: String!
+  smtp_port: Int!
+  smtp_types: smtp_type
+  message_per_day: Int
+  minimum_time_gap: Int
+  reply_to_type: Boolean
+  imap_setting_smtp_host: String
+  imap_setting_smtp_port: Int
+  imap_setting_smtp_types: smtp_type
+}
+
+input update_email_system_values {
+  name: String
+  username: String
+  email: String
+  password: String
+  smtp_host: String
+  smtp_port: Int
+  smtp_types: smtp_type
+  message_per_day: Int
+  minimum_time_gap: Int
+  reply_to_type: Boolean
+  imap_setting_smtp_host: String
+  imap_setting_smtp_port: Int
+  imap_setting_smtp_types: smtp_type
+}
+
+type Query {
+  # Email system
+  getAllEmailSystem: JSON
+  getEmailSystemById(id: Int!): JSON
+}
+
+type Mutation {
+  # Email system
+  createEmailSystem(input: email_system_values): JSON
+  updateEmailSystem(id: Int!, input: update_email_system_values): JSON
+  deleteEmailSystem(id: Int!): JSON
+}
