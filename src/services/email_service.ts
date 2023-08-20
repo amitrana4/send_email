@@ -1,7 +1,7 @@
 'use strict';
 import { dbConn } from '../configs/config'
 
-class _EmailService {
+export class _EmailService {
   async create(body: any) {
     return new Promise(async (resolve, reject) => {
       await dbConn.query("INSERT INTO email_service_scema set ?", body, function (err, res) {
@@ -73,4 +73,3 @@ class _EmailService {
     });
   }
 }
-export const EmailService = new _EmailService();
