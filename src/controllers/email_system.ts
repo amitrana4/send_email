@@ -1,7 +1,7 @@
 import { ApolloError } from "apollo-server-core";
 import {
   EmailService
-} from "../services/email_service";
+} from "../services";
 const controller: string = "[_MailAccountController]";
 
 export class _MailAccountController {

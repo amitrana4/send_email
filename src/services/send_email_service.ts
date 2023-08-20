@@ -1,16 +1,16 @@
 'use strict';
 import { dbConn } from '../configs/config'
 
-export class _EmailService {
+export class _SendEmailService {
   async create(body: any) {
     return new Promise(async (resolve, reject) => {
-      await dbConn.query("INSERT INTO email_service_scema set ?", body, function (err, res) {
+      await dbConn.query("INSERT INTO send_email_scema set ?", body, function (err, res) {
         if (err) {
           console.log("error: ", err);
           return resolve(err)
         }
         else {
-          console.log('email_service_scema : ', res);
+          console.log('send_email_scema : ', res);
           return resolve(res)
         }
       })
@@ -18,13 +18,13 @@ export class _EmailService {
   }
   async get(id: number) {
     return new Promise(async (resolve, reject) => {
-      await dbConn.query("Select * from email_service_scema where id = ? ", id, function (err, res) {
+      await dbConn.query("Select * from send_email_scema where id = ? ", id, function (err, res) {
         if (err) {
           console.log("error: ", err);
           return resolve(err)
         }
         else {
-          console.log('email_service_scema : ', res);
+          console.log('send_email_scema : ', res);
           return resolve(res)
         }
       })
@@ -32,13 +32,13 @@ export class _EmailService {
   }
   getAll() {
     return new Promise(async (resolve, reject) => {
-      await dbConn.query("Select * from email_service_scema", function (err, res) {
+      await dbConn.query("Select * from send_email_scema", function (err, res) {
         if (err) {
           console.log("error: ", err);
           return resolve(err)
         }
         else {
-          console.log('email_service_scema : ', res);
+          console.log('send_email_scema : ', res);
           return resolve(res)
         }
       })
@@ -46,13 +46,13 @@ export class _EmailService {
   }
   async update(body: any, id: number) {
     return new Promise(async (resolve, reject) => {
-      await dbConn.query("UPDATE email_service_scema SET ? WHERE id = ?", [body, id], function (err, res) {
+      await dbConn.query("UPDATE send_email_scema SET ? WHERE id = ?", [body, id], function (err, res) {
         if (err) {
           console.log("error: ", err);
           return resolve(err)
         }
         else {
-          console.log('email_service_scema : ', res);
+          console.log('send_email_scema : ', res);
           return resolve(res)
         }
       })
@@ -60,13 +60,13 @@ export class _EmailService {
   }
   async delete(id: number) {
     return new Promise(async (resolve, reject) => {
-      await dbConn.query("DELETE FROM email_service_scema WHERE id = ?", [id], function (err, res) {
+      await dbConn.query("DELETE FROM send_email_scema WHERE id = ?", [id], function (err, res) {
         if (err) {
           console.log("error: ", err);
           return resolve(err)
         }
         else {
-          console.log('email_service_scema : ', res);
+          console.log('send_email_scema : ', res);
           return resolve(res)
         }
       })

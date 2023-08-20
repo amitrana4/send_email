@@ -40,10 +40,24 @@ input update_email_system_values {
   imap_setting_smtp_types: smtp_type
 }
 
+input send_email_values {
+  to: String!
+  cc: [String]
+  bcc: [String]
+  subject: String
+  body: String
+  service_id: Int
+}
+
 type Query {
   # Email system
   getAllEmailSystem: JSON
   getEmailSystemById(id: Int!): JSON
+
+
+  # Send Email
+  getAllEmail: JSON
+  getSendEmailById(id: Int!): JSON
 }
 
 type Mutation {
@@ -51,4 +65,7 @@ type Mutation {
   createEmailSystem(input: email_system_values): JSON
   updateEmailSystem(id: Int!, input: update_email_system_values): JSON
   deleteEmailSystem(id: Int!): JSON
+
+  # Send Email
+  sendEmail(input: send_email_values): JSON
 }
